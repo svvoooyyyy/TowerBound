@@ -5,9 +5,13 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private float _endPosition;
 
     private void LateUpdate()
     {
-        transform.Translate(_speed * Vector3.up * Time.deltaTime);
+        if (_endPosition > transform.position.y)
+        {
+            transform.Translate(_speed * Vector3.up * Time.deltaTime);
+        }
     }
 }

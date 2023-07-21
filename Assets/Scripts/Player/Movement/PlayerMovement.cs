@@ -42,9 +42,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isWallJumping) // Freeze the player during the duration of the wall jump
+        if (!_isWallJumping) // Freeze the player during the duration of the wall jump
         {
-            _horizontalMove = Input.GetAxis("Horizontal");
             _rb.velocity = new Vector3(_horizontalMove * _speed, _rb.velocity.y, 0.0f); // Move
 
             if (_isFacingRight && _horizontalMove > 0) // Turn left
@@ -59,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        _horizontalMove = Input.GetAxis("Horizontal");
         _isGrounded = Physics2D.OverlapCircle(_feetPosition.position, _checkGroundRadius, _groundLayer); // Check ground
 
         if (_isGrounded && Input.GetKeyDown(KeyCode.Space)) // Jump
