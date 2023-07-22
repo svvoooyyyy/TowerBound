@@ -88,11 +88,11 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private void WallSliding() // Wall slide
+    private void WallSliding() // Wall sliding method
     {
         _isTouchingWall = Physics2D.OverlapCircle(_wallCheck.position, _checkWallRadius, _wallLayer); // Check wall
 
-        if (_isTouchingWall && !_isGrounded && _horizontalMove != 0)
+        if (_isTouchingWall && !_isGrounded && _horizontalMove != 0) // Wall slide
         {
             _isWallSliding = true;
             _rb.velocity = new Vector3(_rb.velocity.x, Mathf.Clamp(_rb.velocity.y, -_wallSlidingSpeed, float.MaxValue), 0.0f);
@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void WallJump() // Wall jump
+    private void WallJump() // Wall jump method
     {
         if (_isWallSliding)
         {
@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
             _canWallJump = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && _isWallSliding && _canWallJump)
+        if (Input.GetKeyDown(KeyCode.Space) && _isWallSliding && _canWallJump) // Wall jump
         {
             _rb.velocity = new Vector3(_xWallForce * _wallJumpingDirection, _yWallForce, 0.0f);
             _isWallJumping = true;
@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void StopWallJumping()  
+    private void StopWallJumping() // Stop wall jumping process
     {
         _isWallJumping = false;
     }

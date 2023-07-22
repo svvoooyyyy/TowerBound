@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public void ActivateLoose()
+    private LevelChanger _lc;
+
+    private void Awake()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);   
+        _lc = FindObjectOfType<LevelChanger>().GetComponent<LevelChanger>();
+    }
+
+    private void Start()
+    {
+        _lc.LoadPlayer();
     }
 }

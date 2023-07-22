@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LooseTrigger : MonoBehaviour
+public class WinTrigger : MonoBehaviour
 {
     private LevelChanger _lc;
 
@@ -15,7 +15,7 @@ public class LooseTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _lc.ActivateLoose();
+            _lc.ActivateWin();
         }
     }
 }
