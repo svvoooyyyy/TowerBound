@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _checkGroundRadius;
     [SerializeField] private Transform _feetPosition;
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private int _extraJumpsValue;
+    private int _extraJumps;
     private bool _isGrounded;
 
     [Header("Wall Jump")]
@@ -36,10 +38,10 @@ public class PlayerMovement : MonoBehaviour
     private bool _isTouchingWall;
     private bool _isWallSliding;
 
-    private Rigidbody2D _rb;
-
     [Header("Animation")]
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator _animator;
+
+    private Rigidbody2D _rb;
 
     private void Awake()
     {
@@ -50,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!_isWallJumping) // Freeze the player during the duration of the wall jump
         {
-            
+
             _rb.velocity = new Vector3(_horizontalMove * _speed, _rb.velocity.y, 0.0f); // Move
 
             if (_isFacingRight && _horizontalMove > 0) // Turn left
@@ -62,15 +64,25 @@ public class PlayerMovement : MonoBehaviour
                 Flip();
             }
         }
-        
-        
+
+
     }
     private void Update()
     {
         _horizontalMove = Input.GetAxis("Horizontal");
         _isGrounded = Physics2D.OverlapCircle(_feetPosition.position, _checkGroundRadius, _groundLayer); // Check ground
 
-        if (_isGrounded && Input.GetKeyDown(KeyCode.Space)) // Jump
+        if (_isGrounded)
+        {
+            _extraJumps = _extraJumpsValue;
+        }
+
+        if (_extraJumps > 0 && Input.GetKeyDown(KeyCode.Space)) // Jump
+        {
+            _rb.velocity = _jumpForce * Vector3.up;
+            --_extraJumps;
+        }
+        else if (_extraJumps == 0 && Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
             _rb.velocity = _jumpForce * Vector3.up;
         }
@@ -78,14 +90,11 @@ public class PlayerMovement : MonoBehaviour
         WallSliding();
         WallJump();
 
-        animator.SetFloat("speed", math.abs(_rb.velocity.x));
-        animator.SetFloat("jump velocity", _rb.velocity.y);
-        animator.SetBool("player horizontal input", math.abs( Input.GetAxisRaw("Horizontal")) > 0);
-        animator.SetBool("touching wall", _isTouchingWall);
-        animator.SetBool("touching ground", _isGrounded);
-        
-        
-        
+        _animator.SetFloat("speed", math.abs(_rb.velocity.x));
+        _animator.SetFloat("jump velocity", _rb.velocity.y);
+        _animator.SetBool("player horizontal input", math.abs(Input.GetAxisRaw("Horizontal")) > 0);
+        _animator.SetBool("touching wall", _isTouchingWall);
+        _animator.SetBool("touching ground", _isGrounded);
     }
 
     private void WallSliding() // Wall sliding method
@@ -145,4 +154,14 @@ public class PlayerMovement : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
+
+    public void AddExtraJumps(int add)
+    {
+        _extraJumpsValue += add;
+    }
+
+    public void AddSpeed(float add)
+    {
+        _speed = add;
+    } 
 }

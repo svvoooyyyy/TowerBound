@@ -43,13 +43,13 @@ public class LevelChanger : MonoBehaviour
         FadeToLevel();
     }
 
-    public void StartNewGame()
+    public void StartNewGame() // Reset data and start new game
     {
         SavePlayer();
         FadeToLevel();
     }
 
-    public void FadeToLevel()
+    public void FadeToLevel() // Active animation 
     {
         _anim.SetTrigger("Fade");
     }
@@ -57,5 +57,10 @@ public class LevelChanger : MonoBehaviour
     public void OnFadeComplete()
     {
         SceneManager.LoadScene(_levelToLoad);
+    }
+
+    public void AddAttempt(int add)
+    {
+        _attempts += add;
     }
 }

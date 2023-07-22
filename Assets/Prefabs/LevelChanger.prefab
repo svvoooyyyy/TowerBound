@@ -140,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attempts: 3
   _level: 1
-  _levelToLoad: 0
+  _levelToLoad: 1
 --- !u!1 &5817233585262859092
 GameObject:
   m_ObjectHideFlags: 0
