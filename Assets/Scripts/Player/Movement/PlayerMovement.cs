@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
@@ -35,6 +38,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D _rb;
 
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -44,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!_isWallJumping) // Freeze the player during the duration of the wall jump
         {
+            
             _rb.velocity = new Vector3(_horizontalMove * _speed, _rb.velocity.y, 0.0f); // Move
 
             if (_isFacingRight && _horizontalMove > 0) // Turn left
@@ -55,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
                 Flip();
             }
         }
+        
+        
     }
     private void Update()
     {
@@ -68,6 +77,15 @@ public class PlayerMovement : MonoBehaviour
 
         WallSliding();
         WallJump();
+
+        animator.SetFloat("speed", math.abs(_rb.velocity.x));
+        animator.SetFloat("jump velocity", _rb.velocity.y);
+        animator.SetBool("player horizontal input", math.abs( Input.GetAxisRaw("Horizontal")) > 0);
+        animator.SetBool("touching wall", _isTouchingWall);
+        animator.SetBool("touching ground", _isGrounded);
+        
+        
+        
     }
 
     private void WallSliding() // Wall slide
