@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(UniversalSoundPlayer))]
 public class Enemy : MonoBehaviour
 {
     [Header("Health")]
@@ -18,9 +18,13 @@ public class Enemy : MonoBehaviour
     private bool _isAttacking;
 
     private PlayerHealth _playerHealth;
+    private UniversalSoundPlayer _soundPlayer;
+
+    [SerializeField] GameObject _takeDamageParticle;
 
     private void Awake()
     {
+        _soundPlayer = GetComponent<UniversalSoundPlayer>();
         _playerHealth = FindObjectOfType<PlayerHealth>();
     }
 
@@ -49,7 +53,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
-
+        _soundPlayer.PlayRandomFromIds();
+        Instantiate(_takeDamageParticle, transform.position, new Quaternion());
         if (_currentHealth <= 0)
         {
             Die();
@@ -58,6 +63,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+
         Destroy(gameObject);
     }
 

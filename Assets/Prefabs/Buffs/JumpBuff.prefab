@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2733263619250855182}
   - component: {fileID: 1539678891614411330}
   - component: {fileID: 4954062220308425004}
+  - component: {fileID: 574693067101076678}
   m_Layer: 0
   m_Name: JumpBuff
   m_TagString: Untagged
@@ -175,3 +176,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &574693067101076678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8561140882151948028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65021f31d3625e44488122586b8246de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 9ffb630d91c51394eb94cced7a3c29e5, type: 2}
+  ids: 
+  _defaultVolume: 0.5
+  _offset: 0

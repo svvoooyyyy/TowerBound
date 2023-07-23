@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(UniversalSoundPlayer))]
 public class SlowDownCamera : MonoBehaviour
 {
     private int _slowValue;
     private Actions _ac;
+    private UniversalSoundPlayer _player;
 
     private void Awake()
     {
+        _player = GetComponent<UniversalSoundPlayer>();
         _ac = FindObjectOfType<Actions>();
     }
 
@@ -16,6 +19,7 @@ public class SlowDownCamera : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            _player.Play(25);
             _ac.SlowDownCamera(_slowValue);
             Destroy(gameObject);
         }

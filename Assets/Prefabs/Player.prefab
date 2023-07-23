@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7147615334662241215}
   - component: {fileID: 453465938467842409}
   - component: {fileID: 7933149121542203805}
-  m_Layer: 0
+  - component: {fileID: 1392504833282978298}
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,6 +107,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1392504833282978298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408154378466145397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65021f31d3625e44488122586b8246de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 9ffb630d91c51394eb94cced7a3c29e5, type: 2}
+  ids: 040000000500000006000000
+  _defaultVolume: 0.5
+  _offset: 0.1
 --- !u!1 &5193863549236194966
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4462250187740255342}
   - component: {fileID: 3578311308323576208}
-  m_Layer: 0
+  - component: {fileID: 2449847138506936235}
+  m_Layer: 8
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -161,6 +179,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2449847138506936235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5193863549236194966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65021f31d3625e44488122586b8246de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 9ffb630d91c51394eb94cced7a3c29e5, type: 2}
+  ids: 010000000200000003000000
+  _defaultVolume: 1
+  _offset: 0.3
 --- !u!1 &5268315305257841522
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 738716046288852437}
   - component: {fileID: 2871069069626642353}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spritesheet_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3920160952365538074}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 529967240730806540}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Feet Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +355,8 @@ GameObject:
   - component: {fileID: 1038092524815644401}
   - component: {fileID: 5029308105618016859}
   - component: {fileID: 15950591920083062}
-  m_Layer: 0
+  - component: {fileID: 5892920947822301513}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -346,7 +381,7 @@ Transform:
   - {fileID: 6621959477107990186}
   - {fileID: 4462250187740255342}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6429784359193588124
 BoxCollider2D:
@@ -450,6 +485,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   _animator: {fileID: 7933149121542203805}
+  _groundParticle: {fileID: 2007286715807650587, guid: 11f02a6ac673d5242a661b78bba46cbf, type: 3}
+  _groundLayerId: 3
 --- !u!114 &5029308105618016859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +519,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 5
+  _takeDamageParticle: {fileID: 5215572059532469536, guid: b28b9e5b3a38baf4db01d6fe563d65d6, type: 3}
+--- !u!114 &5892920947822301513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6378316209841465831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65021f31d3625e44488122586b8246de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 9ffb630d91c51394eb94cced7a3c29e5, type: 2}
+  ids: 120000001300000014000000
+  _defaultVolume: 1
+  _offset: 0.2
 --- !u!1 &8748974434685366958
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +545,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6621959477107990186}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Attack Point
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -523,7 +577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9135205532902266342}
   - component: {fileID: 3439759545488957655}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

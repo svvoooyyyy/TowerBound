@@ -43,6 +43,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D _rb;
 
+    [Header("Particles")]
+    [SerializeField] private GameObject _groundParticle;
+    [SerializeField] private int _groundLayerId = 3;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -173,5 +177,13 @@ public class PlayerMovement : MonoBehaviour
     public void ChangePlayerScale()
     {
         transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == _groundLayerId)
+        {
+            Instantiate(_groundParticle, transform.position, new Quaternion());
+        }
     }
 }

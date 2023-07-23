@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2633792712295640193}
   - component: {fileID: 8727973050066991691}
   - component: {fileID: 3593052881950425365}
+  - component: {fileID: -2175662521967237769}
   m_Layer: 7
   m_Name: Bat
   m_TagString: Untagged
@@ -142,6 +143,23 @@ MonoBehaviour:
     m_Bits: 256
   _attackRange: 0.2
   _attackPoint: {fileID: 7296116468508935554}
+  _takeDamageParticle: {fileID: 5215572059532469536, guid: b28b9e5b3a38baf4db01d6fe563d65d6, type: 3}
+--- !u!114 &-2175662521967237769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2373672260305362083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65021f31d3625e44488122586b8246de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 9ffb630d91c51394eb94cced7a3c29e5, type: 2}
+  ids: 15000000160000001700000018000000
+  _defaultVolume: 0.5
+  _offset: 0.2
 --- !u!1 &5951696068350912762
 GameObject:
   m_ObjectHideFlags: 0

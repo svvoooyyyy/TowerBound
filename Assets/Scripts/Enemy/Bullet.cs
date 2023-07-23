@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D _rb;
     [SerializeField] private float _speed;
     [SerializeField] private int _damage;
+    [SerializeField] private GameObject _destroyParticle;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class Bullet : MonoBehaviour
         {
             other.GetComponent<PlayerHealth>().TakeDamage(_damage);
         }
+        Instantiate(_destroyParticle, transform.position, new Quaternion());
         Destroy(gameObject);
     }
 }

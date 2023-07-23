@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2194679382710860700}
   - component: {fileID: 366821331679731048}
   - component: {fileID: 3766060032560981705}
+  - component: {fileID: 2730022625047780638}
   m_Layer: 7
   m_Name: Zombie
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134314994977303250}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.4, y: -3.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -37,7 +38,7 @@ Transform:
   - {fileID: 3324544825631046011}
   - {fileID: 1799936568059121227}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &8569736709211218664
 CapsuleCollider2D:
@@ -171,6 +172,23 @@ MonoBehaviour:
     m_Bits: 256
   _attackRange: 0.4
   _attackPoint: {fileID: 1799936568059121227}
+  _takeDamageParticle: {fileID: 5215572059532469536, guid: b28b9e5b3a38baf4db01d6fe563d65d6, type: 3}
+--- !u!114 &2730022625047780638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134314994977303250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65021f31d3625e44488122586b8246de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 9ffb630d91c51394eb94cced7a3c29e5, type: 2}
+  ids: 15000000160000001700000018000000
+  _defaultVolume: 0.5
+  _offset: 0.2
 --- !u!1 &5918329026436625510
 GameObject:
   m_ObjectHideFlags: 0
