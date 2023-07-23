@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class RandomBuff : MonoBehaviour
 {
+    [SerializeField] private float _speedValue;
+    [SerializeField] private int _countOfAttempts;
+    [SerializeField] private int countOfEnemies;
+
     private Actions _ac;
 
     private void Awake()
@@ -11,11 +15,12 @@ public class RandomBuff : MonoBehaviour
         _ac = FindObjectOfType<Actions>();
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            _ac.Randomize();
+            _ac.Randomize(_speedValue, countOfEnemies, countOfEnemies);
+            Destroy(gameObject);
         }
     }
 }

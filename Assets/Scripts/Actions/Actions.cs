@@ -1,15 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class Actions : MonoBehaviour
 {
-    [SerializeField] private Action[] _actions;
-    [SerializeField] private float _speedValue;
-    [SerializeField] private int _countOfAttempts;
-    [SerializeField] private int countOfEnemies;
-
     private LevelChanger _levelChanger;
     private PlayerMovement _playerMovement;
     private PlayerCombat _playerCombat;
@@ -23,13 +17,6 @@ public class Actions : MonoBehaviour
         _playerCombat = FindObjectOfType<PlayerCombat>();
         _cameraMove = FindObjectOfType<CameraMove>();
         _spawner = FindObjectOfType<Spawner>();
-}
-
-    private void Start()
-    {
-        _actions[0] = AddSpeed;
-        _actions[1] = AddAttempts;
-        _actions[2] = SpawnEnemies;
     }
 
     public void AddJump(int add)
@@ -47,24 +34,36 @@ public class Actions : MonoBehaviour
         _cameraMove.SlowDown(slowValue);
     }
 
-    public void Randomize()
+    public void Randomize(float speedAdd, int attemptsAdd, int enemiesSpawn)
     {
-        int randomIndex = UnityEngine.Random.Range(0, _actions.Length - 1);
-        _actions[randomIndex].Invoke();
+        int indexOfAction = Random.Range(0, 4);
+
+        switch (indexOfAction)
+        {
+            case 1:
+                AddSpeed(speedAdd);
+                break;
+            case 2:
+                AddAttempts(attemptsAdd);
+                break;
+            case 3:
+                SpawnEnemies(enemiesSpawn);
+                break;
+        }
     }
 
-    private void AddSpeed()
+    private void AddSpeed(float add)
     {
-        _playerMovement.AddSpeed(_speedValue);
+        _playerMovement.AddSpeed(add);
     }
 
-    private void AddAttempts()
+    private void AddAttempts(int add)
     {
-        _levelChanger.AddAttempt(_countOfAttempts);
+        _levelChanger.AddAttempt(add);
     }
 
-    private void SpawnEnemies()
+    private void SpawnEnemies(int spawn)
     {
-        _spawner.SpawnRandomEnemy(countOfEnemies);
+        _spawner.SpawnRandomEnemies(spawn);
     }
 }

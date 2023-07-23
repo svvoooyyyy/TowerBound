@@ -162,6 +162,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void AddSpeed(float add)
     {
-        _speed = add;
+        _speed += add;
     } 
 }
