@@ -12,9 +12,9 @@ public class AddJump : MonoBehaviour
         _ac = FindObjectOfType<Actions>();
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             _ac.AddJump(_jumpsToAdd);
             Destroy(gameObject);
