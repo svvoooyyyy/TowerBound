@@ -31,11 +31,11 @@ public class CameraMove : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (_endPosition > transform.position.y)
         {
-            transform.Translate(_speed * Vector3.up * Time.deltaTime);
+            transform.Translate(_speed * Vector3.up * Time.fixedDeltaTime);
         }
     }
 

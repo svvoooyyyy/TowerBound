@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: wall
   m_EditorClassIdentifier: 
   m_Angles: []
-  m_FillTexture: {fileID: 2800000, guid: 15f4dbc2fea5baa48953134d4c583806, type: 3}
+  m_FillTexture: {fileID: 2800000, guid: 94de298fb9f650144af6520f5d7030e2, type: 3}
   m_CornerSprites:
   - m_CornerType: 0
     m_Sprites:
