@@ -29,13 +29,15 @@ public class ActionManager : MonoBehaviour
             int randomIndex = Random.Range(0, 2);
             int randomCount = Random.Range(1, 4);
 
+            _spawner.SpawnRandomEnemies(randomCount);
+
             switch (randomIndex)
             {
                 case 0:
                     _spawner.SpawnRandomEnemies(randomCount);
                     break;
                 case 1:
-                    _spawner.SpawnRandomStuff(randomCount);
+                    _spawner.SpawnRandomStuff(1);
                     break;
             }
             _timer = _startTimerValue;

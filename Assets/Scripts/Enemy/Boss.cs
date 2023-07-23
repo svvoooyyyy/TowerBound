@@ -6,22 +6,21 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Boss : MonoBehaviour
 {
+    [Header("Attack")]
     [SerializeField] private GameObject _bullet;
-    
+    [SerializeField] private float _startShootingDelay = 4f;
+    [SerializeField] private float _shootingDelay = 3f;
+    [SerializeField] private Transform _playerPos;
+
+    [Header("AI")]
+    [SerializeField] private Transform[] _positions;
+    [SerializeField] private float _changeDestinationTime = 10f;
+    [SerializeField] private float _moveSpeed;
+
     private Vector3 _currentDestination;
     private Rigidbody2D _rb;
     private Animator _animator;
 
-    [Header("ai")]
-    [SerializeField] private float _changeDestinationTime = 10f;
-    [SerializeField] private Transform[] _positions;
-    [SerializeField] private float _moveSpeed;
-
-    [Header("shooting")]
-    [SerializeField] private float _startShootingDelay = 4f;
-    [SerializeField] private float _shootingDelay = 3f;
-    [SerializeField] private Transform _playerPos;
-         
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -49,5 +48,4 @@ public class Boss : MonoBehaviour
         Instantiate(_bullet, transform.position, Quaternion.Euler(new Vector3(0f, 0f, rot_z - 90f + 30f)));
         Instantiate(_bullet, transform.position, Quaternion.Euler(new Vector3(0f, 0f, rot_z - 90f - 30f)));
     }
-
 }

@@ -121,8 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db0b0c6cd0781c04f9480d08521cc37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 7
-  _target: {fileID: 6037401286803497208, guid: ec018b75864673543ae198f54e420a3b, type: 3}
+  _speed: 5
 --- !u!114 &3593052881950425365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,11 +136,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 1
   _attackDamage: 1
-  _startTimeBetweenAttack: 0.2
+  _startTimeBetweenAttack: 0.3
   _playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  _attackRange: 0.6
+  _attackRange: 0.2
   _attackPoint: {fileID: 7296116468508935554}
 --- !u!1 &5951696068350912762
 GameObject:
@@ -215,7 +214,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 354679825
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 1936897216, guid: 0bf1fe117d793164bbde427106484832, type: 3}
   m_Color: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}

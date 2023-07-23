@@ -164,4 +164,14 @@ public class PlayerMovement : MonoBehaviour
     {
         _speed += add;
     } 
+
+    public void ChangeGravity()
+    {
+        _rb.gravityScale = 2;
+    }
+
+    public void ChangePlayerScale()
+    {
+        transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+    }
 }

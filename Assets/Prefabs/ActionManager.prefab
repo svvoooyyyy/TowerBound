@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477adab94bb50ae4f907edc20d0d2c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startTimerValue: 10
+  _startTimerValue: 5

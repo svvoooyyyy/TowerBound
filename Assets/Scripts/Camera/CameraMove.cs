@@ -7,6 +7,7 @@ public class CameraMove : MonoBehaviour
 {
     [SerializeField] private float _startSpeed;
     [SerializeField] private float _speedIncreaseValue;
+    [SerializeField] private float _maxSpeed;
     [SerializeField] private float _timerValue;
     [SerializeField] private float _endPosition;
     private float _speed;
@@ -22,7 +23,10 @@ public class CameraMove : MonoBehaviour
     {
         if (_timer <= 0)
         {
-            _speed += _speedIncreaseValue;
+            if (_speed < _maxSpeed)
+            {
+                _speed += _speedIncreaseValue;
+            }
             _timer = _timerValue;
         }
         else

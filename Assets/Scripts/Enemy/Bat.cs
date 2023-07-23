@@ -6,12 +6,13 @@ using UnityEngine;
 public class Bat : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    [SerializeField] private Transform _target;
+    private Transform _target;
 
     private Rigidbody2D _rb;
 
     private void Awake()
     {
+        _target = FindObjectOfType<PlayerMovement>().transform;
         _rb = GetComponent<Rigidbody2D>();
     }
 
@@ -23,6 +24,6 @@ public class Bat : MonoBehaviour
     private void Move()
     {
         Vector3 direction = (_target.transform.position - transform.position).normalized;
-        _rb.AddForce(direction * _speed, ForceMode2D.Force);
+        _rb.velocity = direction * _speed;
     }
 }

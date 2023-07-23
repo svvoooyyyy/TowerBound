@@ -448,7 +448,7 @@ MonoBehaviour:
   _wallCheck: {fileID: 3920160952365538074}
   _wallLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 72
   _animator: {fileID: 7933149121542203805}
 --- !u!114 &5029308105618016859
 MonoBehaviour:
