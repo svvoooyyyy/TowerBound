@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth;
-    private float _currentHealth;
+    [SerializeField] private int _maxHealth;
+    private int _currentHealth;
     private LevelChanger _levelChanger;
 
     private void Awake()
@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
 
@@ -31,5 +31,9 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         _levelChanger.ActivateLoose();
+    }
+
+    public int GetHealth() {
+        return _currentHealth;
     }
 }

@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     private int _currentHealth;
 
     [Header("Attack")]
-    [SerializeField] private float _attackDamage;
+    [SerializeField] private int _attackDamage;
     [SerializeField] private float _startTimeBetweenAttack;
     [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private float _attackRange;

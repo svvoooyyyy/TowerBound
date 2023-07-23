@@ -6,8 +6,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Rigidbody2D _rb;
-    [SerializeField] private float _speed = 1f;
-    [SerializeField] private float _damage = 1f;
+    [SerializeField] private float _speed;
+    [SerializeField] private int _damage;
 
     private void Start()
     {
@@ -21,13 +21,12 @@ public class Bullet : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(_damage);
+            other.GetComponent<PlayerHealth>().TakeDamage(_damage);
         }
         Destroy(gameObject);
     }
-
 }
