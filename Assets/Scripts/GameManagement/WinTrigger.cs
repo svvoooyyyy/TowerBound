@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class WinTrigger : MonoBehaviour
 {
-    private LevelChanger _lc;
+    private LevelChanger _levelChanger;
 
     private void Awake()
     {
-        _lc = FindObjectOfType<LevelChanger>().GetComponent<LevelChanger>();
+        _levelChanger = FindObjectOfType<LevelChanger>().GetComponent<LevelChanger>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            _lc.ActivateWin();
+            _levelChanger.ActivateWin();
         }
     }
 }

@@ -5,18 +5,18 @@ using UnityEngine;
 public class IncreaseDamage : MonoBehaviour
 {
     private int _damageToIncrease = 10;
-    private GameManager _gm;
+    private Actions _ac;
 
     private void Awake()
     {
-        _gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+        _ac = FindObjectOfType<Actions>();
     }
 
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _gm.AddDamage(_damageToIncrease);
+            _ac.AddDamage(_damageToIncrease);
             Destroy(gameObject);
         }
     }

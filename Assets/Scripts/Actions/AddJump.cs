@@ -5,18 +5,18 @@ using UnityEngine;
 public class AddJump : MonoBehaviour
 {
     private int _jumpsToAdd = 1;
-    private GameManager _gm;
+    private Actions _ac;
 
     private void Awake()
     {
-        _gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+        _ac = FindObjectOfType<Actions>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _gm.AddJump(_jumpsToAdd);
+            _ac.AddJump(_jumpsToAdd);
             Destroy(gameObject);
         }
     }

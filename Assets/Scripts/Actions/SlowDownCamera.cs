@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class SlowDownCamera : MonoBehaviour
 {
-    private int _slow;
-    private GameManager _gm;
+    private int _slowValue;
+    private Actions _ac;
 
     private void Awake()
     {
-        _gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+        _ac = FindObjectOfType<Actions>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _gm.CameraSlowDown(_slow);
+            _ac.SlowDownCamera(_slowValue);
             Destroy(gameObject);
         }
     }

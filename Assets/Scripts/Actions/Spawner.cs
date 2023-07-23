@@ -6,8 +6,6 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] _enemyPrefabs;
     [SerializeField] private GameObject[] _stuffPrefabs;
-    [SerializeField] private int _maxEnemiesToSpawn;
-    [SerializeField] private int _maxStuffToSpawn;
     private BoxCollider2D _spawnArea;
 
     private void Awake()
@@ -15,10 +13,8 @@ public class Spawner : MonoBehaviour
         _spawnArea = GetComponent<BoxCollider2D>();
     }
 
-    public void SpawnRandomEnemy()
+    public void SpawnRandomEnemy(int countOfEnemies)
     {
-        int countOfEnemies = Random.Range(1, _maxEnemiesToSpawn);
-
         for (int i = 0; i < countOfEnemies; ++i)
         {
             Bounds bounds = _spawnArea.bounds;
@@ -28,10 +24,8 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    public void SpawnRandomStuff()
+    public void SpawnRandomStuff(int countOfStuff)
     {
-        int countOfStuff = Random.Range(1, _maxStuffToSpawn);
-
         for (int i = 0; i < countOfStuff; ++i)
         {
             Bounds bounds = _spawnArea.bounds;

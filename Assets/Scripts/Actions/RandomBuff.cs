@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class RandomBuff : MonoBehaviour
 {
-    private GameManager _gm;
+    private Actions _ac;
 
     private void Awake()
     {
-        _gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+        _ac = FindObjectOfType<Actions>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _gm.Randomize();
+            _ac.Randomize();
         }
     }
 }

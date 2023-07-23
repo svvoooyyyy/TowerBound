@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    [Header("Attack")]
     [SerializeField] private int _attackDamage;
     [SerializeField] private float _attackRange;
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private LayerMask _enemyLayer;
     private Rigidbody2D _rb;
 
-    [Header("sword animation")]
+    [Header("Sword Animation")]
     [SerializeField] private Animator _sword;
 
     private void Start()
