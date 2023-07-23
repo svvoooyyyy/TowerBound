@@ -7,6 +7,7 @@ public class ActionManager : MonoBehaviour
     [SerializeField] private float _startTimerValue;
     private float _timer;
     private Spawner _spawner;
+    private Events _events;
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class ActionManager : MonoBehaviour
         }
         else
         {
-            int randomIndex = Random.Range(0, 2);
+            int randomIndex = Random.Range(0, 3);
             int randomCount = Random.Range(1, 4);
 
             _spawner.SpawnRandomEnemies(randomCount);
@@ -38,6 +39,21 @@ public class ActionManager : MonoBehaviour
                     break;
                 case 1:
                     _spawner.SpawnRandomStuff(1);
+                    break;
+                case 2:
+                    int indexOfEvent = Random.Range(0, 3);
+                    switch (indexOfEvent)
+                    {
+                        case 0:
+                            _events.Block();
+                            break;
+                        case 1:
+                            _events.ChangeGravity();
+                            break;
+                        case 2:
+                            _events.ChangeScale();
+                            break;
+                    }
                     break;
             }
             _timer = _startTimerValue;
