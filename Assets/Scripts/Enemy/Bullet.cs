@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -28,7 +29,10 @@ public class Bullet : MonoBehaviour
         {
             other.GetComponent<PlayerHealth>().TakeDamage(_damage);
         }
-        Instantiate(_destroyParticle, transform.position, new Quaternion());
-        Destroy(gameObject);
+        if (other.gameObject.layer == 6 || other.gameObject.layer == 8)
+        {
+            Instantiate(_destroyParticle, transform.position, new Quaternion());
+            Destroy(gameObject);
+        }
     }
 }

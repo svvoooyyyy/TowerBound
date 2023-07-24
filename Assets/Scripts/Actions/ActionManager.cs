@@ -1,6 +1,7 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+
 
 public class ActionManager : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class ActionManager : MonoBehaviour
     {
         if (_timer > 0)
         {
-            _timer -= Time.deltaTime;
+            _timer -= UnityEngine.Time.deltaTime;
         }
         else
         {

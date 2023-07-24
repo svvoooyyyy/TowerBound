@@ -381,7 +381,7 @@ Transform:
   - {fileID: 6621959477107990186}
   - {fileID: 4462250187740255342}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6429784359193588124
 BoxCollider2D:
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5963d90d096614d88ef090a7452cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 5
+  _maxHealth: 10
   _takeDamageParticle: {fileID: 5215572059532469536, guid: b28b9e5b3a38baf4db01d6fe563d65d6, type: 3}
 --- !u!114 &5892920947822301513
 MonoBehaviour:

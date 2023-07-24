@@ -45,7 +45,5 @@ public class Boss : MonoBehaviour
         Vector3 diff = (_playerPos.position - transform.position).normalized;
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         Instantiate(_bullet, transform.position, Quaternion.Euler(new Vector3(0f, 0f, rot_z - 90f)));
-        Instantiate(_bullet, transform.position, Quaternion.Euler(new Vector3(0f, 0f, rot_z - 90f + 30f)));
-        Instantiate(_bullet, transform.position, Quaternion.Euler(new Vector3(0f, 0f, rot_z - 90f - 30f)));
     }
 }

@@ -169,9 +169,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.015, y: 0.0222}
+  m_Offset: {x: 0.009328891, y: 0.022199998}
   serializedVersion: 2
-  m_Radius: 0.08
+  m_Radius: 0.048403796
 --- !u!114 &5758491910513243047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 200
-  _damage: 1
+  _damage: 6
   _destroyParticle: {fileID: 5215572059532469536, guid: b28b9e5b3a38baf4db01d6fe563d65d6, type: 3}
 --- !u!82 &-1228875246988042724
 AudioSource:

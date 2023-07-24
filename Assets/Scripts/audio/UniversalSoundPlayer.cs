@@ -12,7 +12,8 @@ public class UniversalSoundPlayer : MonoBehaviour
 
     public void PlayRandomFromIds() 
     {
-        _currentAudioSource = gameObject.AddComponent<AudioSource>();
+        GameObject gm = Instantiate(new GameObject("audio"));
+        _currentAudioSource = gm.AddComponent<AudioSource>();
         _currentAudioSource.clip = _data._sounds[ids[Random.Range(0, ids.Length)]];
         _currentAudioSource.volume = _defaultVolume;
         _currentAudioSource.Play();
@@ -20,7 +21,8 @@ public class UniversalSoundPlayer : MonoBehaviour
 
     public void Play(int id)
     {
-        _currentAudioSource = gameObject.AddComponent<AudioSource>();
+        GameObject gm = Instantiate(new GameObject("audio"));
+        _currentAudioSource = gm.AddComponent<AudioSource>();
         _currentAudioSource.clip = _data._sounds[id];
         _currentAudioSource.volume = _defaultVolume;
         _currentAudioSource.time = _offset;
