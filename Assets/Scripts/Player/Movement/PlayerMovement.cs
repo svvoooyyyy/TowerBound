@@ -176,7 +176,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void ChangePlayerScale()
     {
-        transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+        if (_isFacingRight)
+        {
+            transform.localScale = new Vector3(-1.5f, 1.5f, 1f);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

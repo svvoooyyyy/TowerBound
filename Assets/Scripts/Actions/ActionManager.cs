@@ -13,6 +13,7 @@ public class ActionManager : MonoBehaviour
     private void Awake()
     {
         _spawner = FindObjectOfType<Spawner>();
+        _events = FindObjectOfType<Events>();
     }
 
     private void Start()
@@ -24,7 +25,7 @@ public class ActionManager : MonoBehaviour
     {
         if (_timer > 0)
         {
-            _timer -= UnityEngine.Time.deltaTime;
+            _timer -= Time.deltaTime;
         }
         else
         {

@@ -8,6 +8,7 @@ public class Zombie : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _distance;
     [SerializeField] private Transform _groundDetection;
+    [SerializeField] private LayerMask _groundLayer;
     private Vector3 _direction;
 
     private Rigidbody2D _rb;
@@ -22,7 +23,7 @@ public class Zombie : MonoBehaviour
     {
         _rb.velocity = _direction * _speed;
 
-        RaycastHit2D groundInfo = Physics2D.Raycast(_groundDetection.position, Vector3.down, _distance);
+        RaycastHit2D groundInfo = Physics2D.Raycast(_groundDetection.position, Vector3.down, _distance, _groundLayer);
 
         if (!groundInfo.collider)
         {

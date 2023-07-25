@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < countOfEnemies; ++i)
         {
             Bounds bounds = _spawnArea.bounds;
-            int indexOfEnemy = Random.Range(0, _enemyPrefabs.Length - 1);
+            int indexOfEnemy = Random.Range(0, _enemyPrefabs.Length);
             float x = Random.Range(bounds.min.x, bounds.max.x);
             Instantiate(_enemyPrefabs[indexOfEnemy], new Vector3(x, transform.position.y), Quaternion.identity);
         }
@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < countOfStuff; ++i)
         {
             Bounds bounds = _spawnArea.bounds;
-            int indexOfStuff = Random.Range(0, _stuffPrefabs.Length - 1);
+            int indexOfStuff = Random.Range(0, _stuffPrefabs.Length);
             float x = Random.Range(bounds.min.x, bounds.max.x);
             Instantiate(_stuffPrefabs[indexOfStuff], new Vector3(x, transform.position.y), Quaternion.identity);
         }

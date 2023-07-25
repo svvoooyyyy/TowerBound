@@ -38,7 +38,7 @@ Transform:
   - {fileID: 3324544825631046011}
   - {fileID: 1799936568059121227}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &8569736709211218664
 CapsuleCollider2D:
@@ -152,6 +152,9 @@ MonoBehaviour:
   _speed: 3
   _distance: 1
   _groundDetection: {fileID: 3324544825631046011}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &3766060032560981705
 MonoBehaviour:
   m_ObjectHideFlags: 0
