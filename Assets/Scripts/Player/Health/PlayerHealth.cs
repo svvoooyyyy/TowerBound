@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _player.PlayRandomFromIds();
-        _currentHealth -= damage;
+        _currentHealth = (_currentHealth - damage < 0 ? 0 : _currentHealth - damage);
         Instantiate(_takeDamageParticle, transform.position, new Quaternion());
         if (_currentHealth <= 0)
         {

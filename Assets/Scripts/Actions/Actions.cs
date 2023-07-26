@@ -29,7 +29,7 @@ public class Actions : MonoBehaviour
         _playerCombat.IncreaseDamage(add);
     }
 
-    public void SlowDownCamera(int slowValue)
+    public void SlowDownCamera(float slowValue)
     {
         _cameraMove.SlowDown(slowValue);
     }

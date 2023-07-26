@@ -8,7 +8,7 @@ public class LevelChanger : MonoBehaviour
     [SerializeField] private int _attempts;
     [SerializeField] private int _level;
     [SerializeField] private int _levelToLoad;
-    [SerializeField] private int bossRoomLevel;
+    [SerializeField] private int _bossRoomLevel;
 
     private Animator _anim;
 
@@ -44,7 +44,7 @@ public class LevelChanger : MonoBehaviour
     public void ActivateWin() // Increase level value and restart scene
     {
         ++_level;
-        if (_levelToLoad >= bossRoomLevel)
+        if (_level >= _bossRoomLevel)
         {
             _levelToLoad = 2;
         }

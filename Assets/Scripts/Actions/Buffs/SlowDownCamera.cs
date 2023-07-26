@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(UniversalSoundPlayer))]
 public class SlowDownCamera : MonoBehaviour
 {
-    private int _slowValue;
+    [SerializeField] private float _slowValue;
     private Actions _ac;
     private UniversalSoundPlayer _player;
 

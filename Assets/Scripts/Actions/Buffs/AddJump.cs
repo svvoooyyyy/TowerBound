@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AddJump : MonoBehaviour
 {
-    private int _jumpsToAdd = 1;
+    [SerializeField] private int _jumpsToAdd;
     private Actions _ac;
 
     private void Awake()

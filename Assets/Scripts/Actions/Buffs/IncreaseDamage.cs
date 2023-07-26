@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IncreaseDamage : MonoBehaviour
 {
-    private int _damageToIncrease = 10;
+    [SerializeField] private int _damageToIncrease;
     private Actions _ac;
 
     private void Awake()

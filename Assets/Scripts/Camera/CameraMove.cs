@@ -43,8 +43,8 @@ public class CameraMove : MonoBehaviour
         }
     }
 
-    public void SlowDown(int slow)
+    public void SlowDown(float slow)
     {
-        _speed = (_speed - slow < 0 ? 0 : _speed - slow);
+        _speed = (_speed - slow < 0.0f ? 0.0f : _speed - slow);
     }
 }
