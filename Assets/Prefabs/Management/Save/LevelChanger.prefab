@@ -141,7 +141,8 @@ MonoBehaviour:
   _attempts: 3
   _level: 1
   _levelToLoad: 1
-  _bossRoomLevel: 3
+  _bossRoomLevel: 4
+  _playerMovement: {fileID: 0}
 --- !u!1 &5817233585262859092
 GameObject:
   m_ObjectHideFlags: 0

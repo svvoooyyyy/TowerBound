@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject _groundParticle;
     [SerializeField] private int _groundLayerId = 3;
 
+    private bool _isDied;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -54,51 +56,55 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_isWallJumping) // Freeze the player during the duration of the wall jump
+        if (!_isDied)
         {
-
-            _rb.velocity = new Vector3(_horizontalMove * _speed, _rb.velocity.y, 0.0f); // Move
-
-            if (_isFacingRight && _horizontalMove > 0) // Turn left
+            if (!_isWallJumping) // Freeze the player during the duration of the wall jump
             {
-                Flip();
-            }
-            else if (!_isFacingRight && _horizontalMove < 0) // Turn right
-            {
-                Flip();
+
+                _rb.velocity = new Vector3(_horizontalMove * _speed, _rb.velocity.y, 0.0f); // Move
+
+                if (_isFacingRight && _horizontalMove > 0) // Turn left
+                {
+                    Flip();
+                }
+                else if (!_isFacingRight && _horizontalMove < 0) // Turn right
+                {
+                    Flip();
+                }
             }
         }
-
-
     }
     private void Update()
     {
-        _horizontalMove = Input.GetAxis("Horizontal");
-        _isGrounded = Physics2D.OverlapCircle(_feetPosition.position, _checkGroundRadius, _groundLayer); // Check ground
-
-        if (_isGrounded)
+        if (!_isDied)
         {
-            _extraJumps = _extraJumpsValue;
-        }
+            _horizontalMove = Input.GetAxis("Horizontal");
+            _isGrounded = Physics2D.OverlapCircle(_feetPosition.position, _checkGroundRadius, _groundLayer); // Check ground
 
-        if (_extraJumps > 0 && Input.GetKeyDown(KeyCode.Space)) // Jump
-        {
-            _rb.velocity = _jumpForce * Vector3.up;
-            --_extraJumps;
-        }
-        else if (_extraJumps == 0 && Input.GetKeyDown(KeyCode.Space) && _isGrounded)
-        {
-            _rb.velocity = _jumpForce * Vector3.up;
-        }
+            if (_isGrounded)
+            {
+                _extraJumps = _extraJumpsValue;
+            }
 
-        WallSliding();
-        WallJump();
+            if (_extraJumps > 0 && Input.GetKeyDown(KeyCode.Space)) // Jump
+            {
+                _rb.velocity = _jumpForce * Vector3.up;
+                --_extraJumps;
+            }
+            else if (_extraJumps == 0 && Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+            {
+                _rb.velocity = _jumpForce * Vector3.up;
+            }
 
-        _animator.SetFloat("speed", math.abs(_rb.velocity.x));
-        _animator.SetFloat("jump velocity", _rb.velocity.y);
-        _animator.SetBool("player horizontal input", math.abs(Input.GetAxisRaw("Horizontal")) > 0);
-        _animator.SetBool("touching wall", _isTouchingWall);
-        _animator.SetBool("touching ground", _isGrounded);
+            WallSliding();
+            WallJump();
+
+            _animator.SetFloat("speed", math.abs(_rb.velocity.x));
+            _animator.SetFloat("jump velocity", _rb.velocity.y);
+            _animator.SetBool("player horizontal input", math.abs(Input.GetAxisRaw("Horizontal")) > 0);
+            _animator.SetBool("touching wall", _isTouchingWall);
+            _animator.SetBool("touching ground", _isGrounded);
+        }
     }
 
     private void WallSliding() // Wall sliding method
@@ -192,5 +198,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Instantiate(_groundParticle, transform.position, new Quaternion());
         }
+    }
+
+    public void _isDiedTrigger()
+    {
+        _isDied = true;
     }
 }

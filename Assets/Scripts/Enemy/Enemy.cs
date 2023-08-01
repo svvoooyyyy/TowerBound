@@ -10,11 +10,9 @@ public class Enemy : MonoBehaviour
 
     [Header("Attack")]
     [SerializeField] private int _attackDamage;
-    [SerializeField] private float _startTimeBetweenAttack;
     [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private float _attackRange;
     [SerializeField] private Transform _attackPoint;
-    private float _timeBetweenAttack;
     private bool _isAttacking;
 
     private PlayerHealth _playerHealth;
@@ -39,14 +37,7 @@ public class Enemy : MonoBehaviour
 
         if (_isAttacking)
         {
-            if (_timeBetweenAttack <= 0)
-            {
-                Attack();
-            }
-            else
-            {
-                _timeBetweenAttack -= Time.deltaTime;
-            }
+            Attack();
         }
     }
 
@@ -70,7 +61,6 @@ public class Enemy : MonoBehaviour
     private void Attack()
     {
         _playerHealth.TakeDamage(_attackDamage);
-        _timeBetweenAttack = _startTimeBetweenAttack;
     }
 
     private void OnDrawGizmosSelected()

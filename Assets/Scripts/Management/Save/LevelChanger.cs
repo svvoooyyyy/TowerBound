@@ -9,6 +9,7 @@ public class LevelChanger : MonoBehaviour
     [SerializeField] private int _level;
     [SerializeField] private int _levelToLoad;
     [SerializeField] private int _bossRoomLevel;
+    [SerializeField] private PlayerMovement _playerMovement;
 
     private Animator _anim;
 
@@ -39,6 +40,7 @@ public class LevelChanger : MonoBehaviour
         }
         SavePlayer();
         FadeToLevel();
+        _playerMovement._isDiedTrigger();
     }
 
     public void ActivateWin() // Increase level value and restart scene
@@ -50,6 +52,7 @@ public class LevelChanger : MonoBehaviour
         }
         SavePlayer();
         FadeToLevel();
+        _playerMovement._isDiedTrigger();
     }
 
     public void StartNewGame() // Reset data and start new game

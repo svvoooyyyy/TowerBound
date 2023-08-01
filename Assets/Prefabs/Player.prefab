@@ -520,6 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 10
   _takeDamageParticle: {fileID: 5215572059532469536, guid: b28b9e5b3a38baf4db01d6fe563d65d6, type: 3}
+  _takingDamageCooldown: 0.5
 --- !u!114 &5892920947822301513
 MonoBehaviour:
   m_ObjectHideFlags: 0
